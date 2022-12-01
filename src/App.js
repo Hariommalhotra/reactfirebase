@@ -34,9 +34,6 @@ function App() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log(user.uid);
-
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
         dispatch(setAuthUser({ uid: user.uid }));
       } else {
         dispatch(setIsAuthenticated(false));
