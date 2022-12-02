@@ -22,7 +22,10 @@ import { auth, db } from "../../firebase";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify";
 import { addDoc, collection } from "firebase/firestore";
+import { Validate } from 'mui-validate';
+import { ValidationGroup } from 'mui-validate';
 const theme = createTheme();
+
 
 export default function SignUp() {
 
@@ -111,8 +114,11 @@ export default function SignUp() {
             onSubmit={signup}
             sx={{ mt: 3 }}
           >
+             <ValidationGroup>
+          <>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
+              <Validate name="internal key 1" required>
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
@@ -122,7 +128,10 @@ export default function SignUp() {
                   label="First Name"
                   autoFocus
                 />
+                  </Validate>
+
               </Grid>
+            
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
@@ -247,6 +256,8 @@ export default function SignUp() {
                 </Link>
               </Grid>
             </Grid>
+            </>
+          </ValidationGroup>
           </Box>
         </Box>
       </Container>

@@ -12,7 +12,7 @@ import {
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { ToastContainer } from "react-toastify";
 import Dashboard from "./components/dashboard/Dashboard/Dashboard";
-
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const ProtectedRoute = () => {
   const isAuthenticated = useAppSelector(
@@ -51,7 +51,7 @@ function App() {
           </Route>
         </Route>
       </Routes>
-      <ToastContainer />
+      <ToastContainer autoClose={3000}/>
     </div>
   );
 }

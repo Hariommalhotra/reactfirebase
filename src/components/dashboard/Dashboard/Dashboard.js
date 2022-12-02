@@ -114,33 +114,10 @@ function DashboardContent() {
     navigate("/");
   };
 
-  // const handleData = async () => {
-  //   return getDocs(collection(db, "users"))
-  //     .then((res) => 
-  //      setPosts(res.docs)
-  //   )
-  //     .catch((err) => {
-  //       // console.log("erroe", err);
-  //     });
-   
-  // };
   React.useEffect(() => {
     const getAdmins = async () => {
       const admins = await getDocs(collection(db, "users"));
       admins.forEach((admin) => {
-        console.log(admin.data(),'sssssssss');
-        // setPosts([
-        //   ...posts,
-        //   {
-        //     id: admin.data().uid,
-        //     name: admin.data().name,
-        //     lname: admin.data().lname,
-        //     email: admin.data().email,
-        //     gender: admin.data().gender,
-        //     hobbies: admin.data().hobbies,
-        //   },
-        // ]);
-
         setPosts((r) => ([
           ...r,
           { id: admin.data().uid,
