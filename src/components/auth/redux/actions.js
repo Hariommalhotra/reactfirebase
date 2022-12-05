@@ -1,5 +1,4 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { Dispatch } from "redux";
 import { db } from "../../../firebase";
 import {
   RESET_AUTH,

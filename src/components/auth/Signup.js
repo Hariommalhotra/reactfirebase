@@ -19,8 +19,8 @@ import { FormGroup } from "@mui/material";
 import { useState } from "react";
 import {Link, useNavigate } from "react-router-dom";
 import { auth, db } from "../../firebase";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { toast, ToastContainer } from "react-toastify";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { toast } from "react-toastify";
 import { addDoc, collection } from "firebase/firestore";
 import { Validate } from 'mui-validate';
 import { ValidationGroup } from 'mui-validate';
@@ -29,7 +29,6 @@ const theme = createTheme();
 
 export default function SignUp() {
 
-  const [error, setError] = useState("");
 
   const navigate = useNavigate();
   const [hobbiesData, setHobbiesData] = useState([]);
@@ -47,7 +46,6 @@ export default function SignUp() {
 
     const data = new FormData(event.currentTarget);
     event.preventDefault();
-        setError("");
         if (data.get("email") && data.get("password")) {
           // Create a new user with email and password using firebase
           createUserWithEmailAndPassword(
@@ -76,20 +74,6 @@ export default function SignUp() {
         }
       }
   
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  
- 
-    const data = new FormData(event.currentTarget);
-  console.log({
-    email: data.get("email"),
-    password: data.get("password"),
-    name: data.get("firstName"),
-    lname: data.get("lastName"),
-    gender: data.get("radio-buttons-group"),
-    hobbies: hobbiesData
-  });
-};
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">

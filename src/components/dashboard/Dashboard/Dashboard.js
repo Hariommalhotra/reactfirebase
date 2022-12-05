@@ -10,43 +10,23 @@ import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import ListSubheader from '@mui/material/ListSubheader';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
-import AssignmentIcon from '@mui/icons-material/Assignment';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { DataGrid } from '@mui/x-data-grid';
-import { query, collection, getDocs, where } from "firebase/firestore";
-import { async } from '@firebase/util';
-// function Dashboard() {
-
-
-//   return (
-//     <div><h1>Welcome to dashboard</h1><button onClick={onLogOut}>Logout</button></div>
-//   )
-// }
-
-// export default Dashboard
-
-
+import {  collection, getDocs } from "firebase/firestore";
 
 const drawerWidth = 240;
 
@@ -163,18 +143,6 @@ const columns = [
         editable: true,
       },
   
-  ];
-  
-  const rows = [
-    { id: 1, lastName: 'Snow', firstName: 'Jon', gender:"male",hobbies:"Meditation" },
-    { id: 2, lastName: 'Lannister', firstName: 'Cersei', gender:"male",hobbies:"Meditation" },
-    { id: 3, lastName: 'Lannister', firstName: 'Jaime', gender:"male" ,hobbies:"Meditation"},
-    { id: 4, lastName: 'Stark', firstName: 'Arya', gender:"male" ,hobbies:"Meditation"},
-    { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', gender:"male" ,hobbies:"Meditation"},
-    { id: 6, lastName: 'Melisandre', firstName: null, gender:"male" ,hobbies:"Meditation"},
-    { id: 7, lastName: 'Clifford', firstName: 'Ferrara', gender:"male" ,hobbies:"Meditation"},
-    { id: 8, lastName: 'Frances', firstName: 'Rossini', gender:"male" ,hobbies:"Meditation"},
-    { id: 9, lastName: 'Roxie', firstName: 'Harvey', gender:"male" ,hobbies:"Meditation"},
   ];
   
   return (

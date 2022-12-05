@@ -39,7 +39,7 @@ function App() {
         dispatch(setIsAuthenticated(false));
       }
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
