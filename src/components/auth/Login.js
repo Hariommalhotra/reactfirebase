@@ -56,22 +56,20 @@ export default function SignIn() {
   const validationSchema = Yup.object().shape({
     email: Yup.string().email("Please Enter Valid Email").required(),
     password: Yup.string().required('Please Enter your password')
-    .matches(
-      // eslint-disable-next-line no-useless-escape
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
-    ),
+    // .matches(
+    //   // eslint-disable-next-line no-useless-escape
+    //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+    //   "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
+    // ),
   });
 
-  const onSubmit = (values, props, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values));
-
+  const onSubmit = (values, props) => {
+   
       console.log(values, "jgkhk");
       if (values.email && values.password) {
         console.log(values.email, values.password, "jgkhk");
         // Create a new user with email and password using firebase
-        signInWithEmailAndPassword(auth, values.email && values.password)
+        signInWithEmailAndPassword(auth, values.email,values.password)
           .then(async (res) => {
             dispatch(setAuthUser({ uid: res.user.uid }));
             localStorage.setItem("token", res.user.refreshToken);
@@ -87,14 +85,12 @@ export default function SignIn() {
             } else {
               toast.error(error.message);
             }
-            // setTimeout(() => {
-            //   window.location.reload();
-            // }, 1000);
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
           });
       }
 
-      setSubmitting(false);
-    }, 400);
   };
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -230,11 +226,6 @@ export default function SignIn() {
                   Sign In
                 </Button>
                 <br />
-                {console.log(isValid
-,dirty,'ye re wo')}
-            isValid: {JSON.stringify(isValid)}
-            <br />
-            dirty: {JSON.stringify(dirty)}
                 <Grid container>
                   <Grid item xs>
                     <Link href="#" variant="body2">
