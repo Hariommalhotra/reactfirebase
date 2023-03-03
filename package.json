@@ -28,7 +28,7 @@
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.2",
     "snyk": "^1.1066.0",
-    "styled-components": "^5.3.6",
+    "styled-components": "^5.3.7",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
